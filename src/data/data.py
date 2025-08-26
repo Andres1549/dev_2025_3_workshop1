@@ -212,4 +212,12 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        if not matriz or not matriz[0]:
+            return []
+        filas = len(matriz)
+        columnas = len(matriz[0])
+        transpuesta = [[0] * filas for _ in range(columnas)]
+        for i in range(filas):
+            for j in range(columnas):
+                transpuesta[j][i] = matriz[i][j]
+        return transpuesta
