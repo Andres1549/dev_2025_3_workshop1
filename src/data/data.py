@@ -112,7 +112,10 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        n = len(lista) + 1
+        suma_esperada = n * (n + 1) // 2
+        suma_actual = sum(lista)
+        return suma_esperada - suma_actual
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
@@ -125,7 +128,15 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        for elemento in conjunto1:
+            encontrado = False
+            for item in conjunto2:
+                if elemento == item:
+                    encontrado = True
+                    break
+            if not encontrado:
+                return False
+        return True
     
     def implementar_pila(self):
         """
