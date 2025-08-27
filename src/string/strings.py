@@ -147,7 +147,13 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
-        pass
+        if not isinstance(texto, str) or texto.strip() == "":
+            return False
+        try:
+            int(texto)  
+            return True
+        except ValueError:
+            return False
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
