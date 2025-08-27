@@ -101,7 +101,19 @@ class Strings:
         Returns:
             str: Cadena con la primera letra de cada palabra en mayúscula
         """
-        pass
+        resultado = ""
+        en_espacio = True
+        for char in texto:
+            if char.isspace():
+                resultado += char
+                en_espacio = True
+            else:
+                if en_espacio:
+                    resultado += char.upper()
+                    en_espacio = False
+                else:
+                    resultado += char
+        return resultado
     
     def eliminar_espacios_duplicados(self, texto):
         """
