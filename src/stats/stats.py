@@ -12,7 +12,7 @@ class Stats:
         Ejemplo:
             promedio([1, 2, 3, 4, 5]) -> 3.0
         """
-        pass
+        return sum(numeros) / len(numeros) if numeros else 0
     
     def mediana(self, numeros):
         """
@@ -29,7 +29,15 @@ class Stats:
             mediana([1, 2, 3, 4, 5]) -> 3.0
             mediana([1, 2, 3, 4]) -> 2.5
         """
-        pass
+        if not numeros:
+            return 0
+        sorted_nums = sorted(numeros)
+        n = len(sorted_nums)
+        mid = n // 2
+        if n % 2 == 0:
+            return (sorted_nums[mid - 1] + sorted_nums[mid]) / 2
+        else:
+            return sorted_nums[mid]
     
     def moda(self, numeros):
         """
@@ -45,7 +53,15 @@ class Stats:
         Ejemplo:
             moda([1, 2, 2, 3, 3, 3]) -> 3
         """
-        pass
+        if not numeros:
+            return None
+        frecuencia = {}
+        for num in numeros:
+            frecuencia[num] = frecuencia.get(num, 0) + 1
+        max_count = max(frecuencia.values())
+        for num in numeros:
+            if frecuencia[num] == max_count:
+                return num
     
     def desviacion_estandar(self, numeros):
         """
