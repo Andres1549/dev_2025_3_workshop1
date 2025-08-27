@@ -125,7 +125,17 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        pass
+        resultado = ""
+        espacio_anterior = False
+        for char in texto:
+            if char.isspace():
+                if not espacio_anterior:
+                    resultado += char
+                    espacio_anterior = True
+            else:
+                resultado += char
+                espacio_anterior = False
+        return resultado
     
     def es_numero_entero(self, texto):
         """
