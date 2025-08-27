@@ -166,7 +166,13 @@ class Strings:
         Returns:
             str: Cadena cifrada
         """
-        pass
+        resultado = ""
+        for char in texto:
+            if char.isalpha():
+                base = ord('A') if char.isupper() else ord('a')
+                nueva_pos = (ord(char) - base + desplazamiento) % 26
+                resultado += chr(base + nueva_pos)
+        return resultado
     
     def descifrar_cesar(self, texto, desplazamiento):
         """
@@ -179,7 +185,7 @@ class Strings:
         Returns:
             str: Cadena descifrada
         """
-        pass
+        return self.cifrar_cesar(texto, -desplazamiento)
     
     def encontrar_subcadena(self, texto, subcadena):
         """
